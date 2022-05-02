@@ -40,10 +40,25 @@ fun main(args: Array<String>) {
     println("There were ${counter2} group numbers greater than the number in front")
 
 
-//    print(reader.getPuzzle2())
+    var xAxis = 0
+    var yAxis = 0
+    reader.getPuzzle2().forEach {
+        var itNumber = it[1] as Int
+        var newValue = MoveOptions(yDown = (yAxis + itNumber), yUp = (yAxis - itNumber), xForward = (xAxis + itNumber))
+        when (it[0]) {
+            "down" -> yAxis = newValue.yDown
+            "up" -> yAxis = newValue.yUp
+            "forward" -> xAxis = newValue.xForward
+            else -> {
+                print("It is not usable for us!")
+            }
+        }
+    }
+    println("De duikboot bevind zich op ${xAxis}, ${yAxis}. Result: ${xAxis*yAxis}")
+
+
+
     //println(reader.getPuzzle3())
     //println(reader.getPuzzle4Numbers())
     //println(reader.getPuzzle4Cards())
 }
-
-//fun checkValues(array: Array, counter)
