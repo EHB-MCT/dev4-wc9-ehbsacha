@@ -1,6 +1,20 @@
 fun main(args: Array<String>) {
-    var i = 0
     val reader = FileReader();
+
+    oef1(reader)
+    oef2(reader)
+    oef3(reader)
+
+    print(reader.getPuzzle3())
+    //println(reader.getPuzzle4Numbers())
+    //println(reader.getPuzzle4Cards())
+}
+
+fun oef1(reader: FileReader){
+
+    println("Oef 1")
+
+    var i = 0
     var counter1 = 0
     var counter2 = 0
     var negativeCounter = 0
@@ -8,8 +22,6 @@ fun main(args: Array<String>) {
     var group1: List<Int>
     var group2: List<Int>
 
-
-    // Oef 1.0
     reader.getPuzzle1().forEach {
         if(currentNr == 0){
             currentNr = it
@@ -23,7 +35,6 @@ fun main(args: Array<String>) {
         currentNr = it
     }
     println("There were ${counter1} greater than the number in front, there where ${negativeCounter} lower")
-    println()
 
     while (i < (reader.getPuzzle1().size - 3)){
         group1 = reader.getPuzzle1().slice(setOf(i, i+1, i+2))
@@ -38,8 +49,9 @@ fun main(args: Array<String>) {
         i++
     }
     println("There were ${counter2} group numbers greater than the number in front")
-
-
+    println()
+}
+fun oef2(reader: FileReader){
     var xAxis = 0
     var yAxis = 0
     var aim = 0
@@ -55,7 +67,6 @@ fun main(args: Array<String>) {
             "forward" -> {
                 xAxis += itNumber
                 yAxis += itNumber * aim
-                println(aim)
             }
             else -> {
                 print("It is not usable for us!")
@@ -63,10 +74,8 @@ fun main(args: Array<String>) {
         }
     }
     println("De duikboot bevind zich op ${xAxis}, ${yAxis}. Result: ${xAxis*yAxis}")
+}
 
+fun oef3(reader: FileReader){
 
-
-    //println(reader.getPuzzle3())
-    //println(reader.getPuzzle4Numbers())
-    //println(reader.getPuzzle4Cards())
 }

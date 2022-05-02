@@ -4,7 +4,6 @@ class FileReader {
     fun getPuzzle1(): List<Int> {
         val url = "src/main/resources/puzzle1.txt"
         var file = File(url).readLines()
-        //println(file);
         val inputList = file.map { it.toInt() }
         return inputList;
     }
@@ -25,7 +24,6 @@ class FileReader {
         var file = File(url).readLines()
         val inputList = mutableListOf<List<Int>>()
         file.forEach{
-            println("Test")
             val charArray = it.toCharArray()
             val intList = charArray.map{it -> it.digitToInt() }
             inputList.add(intList)
