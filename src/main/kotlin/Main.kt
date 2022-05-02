@@ -42,13 +42,21 @@ fun main(args: Array<String>) {
 
     var xAxis = 0
     var yAxis = 0
+    var aim = 0
     reader.getPuzzle2().forEach {
         var itNumber = it[1] as Int
-        var newValue = MoveOptions(yDown = (yAxis + itNumber), yUp = (yAxis - itNumber), xForward = (xAxis + itNumber))
         when (it[0]) {
-            "down" -> yAxis = newValue.yDown
-            "up" -> yAxis = newValue.yUp
-            "forward" -> xAxis = newValue.xForward
+            "down" -> {
+                aim += itNumber
+            }
+            "up" -> {
+                aim -= itNumber
+            }
+            "forward" -> {
+                xAxis += itNumber
+                yAxis += itNumber * aim
+                println(aim)
+            }
             else -> {
                 print("It is not usable for us!")
             }
